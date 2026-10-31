@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Rich Fazio: ballplayer, manager, coach and author of baseball journals in Greenville, SC.">
+<title>Rich Fazio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@600;700;800&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: a ballpark scorebook. Slate-blue sheet, chalk lines, one clay accent like an infield. */
+:root {
+  --bg: #F3F5F8;
+  --sheet: #FFFFFF;
+  --ink: #18212E;
+  --muted: #4F5D70;
+  --line: #D4DBE5;
+  --navy: #1E3250;
+  --navy-ink: #EAF0F7;
+  --accent: #B5562F;
+  --accent-ink: #FFFFFF;
+  --chip: #E4EAF2;
+  --display: 'Bitter', Georgia, serif;
+  --body: 'Public Sans', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11161E; --sheet: #18202B; --ink: #E6ECF3; --muted: #A3B1C3; --line: #2C3848;
+    --navy: #0C1420; --navy-ink: #E6ECF3; --accent: #D9774E; --accent-ink: #11161E; --chip: #222D3B;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11161E; --sheet: #18202B; --ink: #E6ECF3; --muted: #A3B1C3; --line: #2C3848;
+  --navy: #0C1420; --navy-ink: #E6ECF3; --accent: #D9774E; --accent-ink: #11161E; --chip: #222D3B;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.6; }
+a { color: inherit; }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.08; }
+p { margin: 0; }
+.eyebrow { font-family: var(--mono); font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+
+/* Hero */
+.hero { background: var(--navy); color: var(--navy-ink); }
+.hero .wrap { padding-block: 72px 64px; display: grid; gap: 28px; }
+.hero h1 { font-size: clamp(52px, 10vw, 104px); font-weight: 800; letter-spacing: -0.01em; }
+.hero h1 span { color: var(--accent); }
+.hero .lead { font-size: 20px; max-width: 34em; opacity: 0.9; }
+.tags { display: flex; flex-wrap: wrap; gap: 10px; }
+.tags span { font-family: var(--mono); font-size: 13px; padding: 6px 12px; border: 1px solid rgba(234,240,247,0.35); border-radius: 999px; }
+nav.jump { display: flex; flex-wrap: wrap; gap: 8px 22px; font-weight: 600; font-size: 15px; }
+nav.jump a { text-decoration: none; padding-block: 8px; border-bottom: 2px solid transparent; }
+nav.jump a:hover { border-color: var(--accent); }
+
+section.block .wrap { padding-block: 72px; display: grid; gap: 32px; }
+section.block + section.block .wrap { border-top: 1px solid var(--line); }
+.head { display: grid; gap: 10px; max-width: 40em; }
+.head h2 { font-size: clamp(32px, 5vw, 46px); }
+.head p { color: var(--muted); }
+
+/* Scorebook table */
+.book { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--sheet); }
+table { width: 100%; border-collapse: collapse; min-width: 560px; }
+th, td { text-align: left; padding: 14px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); background: var(--chip); }
+tr:last-child td { border-bottom: 0; }
+td.team { font-family: var(--display); font-weight: 700; font-size: 18px; }
+td.team small { display: block; font-family: var(--body); font-weight: 500; font-size: 14px; color: var(--muted); }
+td.yrs { font-family: var(--mono); font-size: 14px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.note { font-size: 15px; color: var(--muted); }
+
+/* Books */
+.books { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+.bk { background: var(--sheet); border: 1px solid var(--line); border-radius: 10px; padding: 22px; display: grid; gap: 8px; align-content: start; }
+.bk h3 { font-size: 22px; }
+.status { justify-self: start; font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; background: var(--chip); color: var(--muted); }
+.status.out { background: var(--accent); color: var(--accent-ink); }
+.bk p { color: var(--muted); font-size: 15px; }
+
+/* Work */
+.timeline { display: grid; gap: 0; border-left: 2px solid var(--line); margin-left: 6px; }
+.job { position: relative; padding: 0 0 26px 24px; display: grid; gap: 2px; }
+.job::before { content: ""; position: absolute; left: -7px; top: 8px; width: 12px; height: 12px; border-radius: 50%; background: var(--sheet); border: 2px solid var(--accent); }
+.job .when { font-family: var(--mono); font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.job h3 { font-size: 20px; }
+.job p { color: var(--muted); font-size: 15px; max-width: 46em; }
+
+/* Shops */
+.shops { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+.shop { display: grid; gap: 8px; text-decoration: none; background: var(--sheet); border: 1px solid var(--line); border-radius: 10px; padding: 24px; transition: border-color .2s, transform .2s; }
+.shop:hover { border-color: var(--accent); transform: translateY(-2px); }
+.shop h3 { font-size: 24px; }
+.shop p { color: var(--muted); font-size: 15px; }
+.shop .go { font-weight: 700; color: var(--accent); }
+
+/* Contact */
+.contact { background: var(--navy); color: var(--navy-ink); border-radius: 14px; padding: 36px 28px; display: grid; gap: 12px; }
+.contact h2 { font-size: clamp(28px, 4.4vw, 40px); }
+.placeholder { font-family: var(--mono); font-size: 15px; padding: 10px 14px; border: 1px dashed rgba(234,240,247,0.45); border-radius: 8px; justify-self: start; }
+footer .wrap { padding-block: 28px 40px; font-size: 14px; color: var(--muted); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+<style>body{margin:0}</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Brooklyn born · Greenville, SC</p>
+    <h1>Rich Fazio<span>.</span></h1>
+    <p class="lead">Ballplayer since age four, manager, coach, author of baseball journals, husband, and dad of three. I write about the game, build teams, and run a couple of small shops with my family.</p>
+    <div class="tags">
+      <span>Player</span><span>Manager</span><span>Coach</span><span>Author</span><span>Card collector</span>
+    </div>
+    <nav class="jump" aria-label="Sections">
+      <a href="#baseball">Baseball</a>
+      <a href="#books">Books</a>
+      <a href="#work">Work</a>
+      <a href="#shops">Shops</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="block" id="baseball">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">The lineup card</p>
+        <h2>Baseball</h2>
+        <p>I've played since I was four. I stepped away after high school, played one season in Myrtle Beach in 2013, came back in 2022, and have played and managed ever since. I still pitch.</p>
+      </div>
+      <div class="book">
+        <table>
+          <thead>
+            <tr><th scope="col">Team</th><th scope="col">Role</th><th scope="col">Years</th><th scope="col">Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="team">Greer A's<small>Greer Adult Baseball, 30-and-over wood bat</small></td><td>Manager</td><td class="yrs">2022 to now</td><td>Won the 2022 GAB championship in our first year after a 2-8 regular season.</td></tr>
+            <tr><td class="team">Greer Spiders<small>Greer Adult Baseball</small></td><td>Founder, manager</td><td class="yrs">2025 to now</td><td>First win in team history on August 25, 2026. Home games at Stevens Field, Greer.</td></tr>
+            <tr><td class="team">Greenville Pioneers<small>Palmetto Baseball Association, semi-pro</small></td><td>Co-manager</td><td class="yrs">2026</td><td>Went 12-6, swept Anderson in round one, and lost the semifinal in Game 5 to the Carolina Blue Jays.</td></tr>
+            <tr><td class="team">Greer Shifters<small>Palmetto State League</small></td><td>General manager</td><td class="yrs">2026</td><td>Runner-up finish.</td></tr>
+            <tr><td class="team">Inman Braves<small>Palmetto Baseball Association</small></td><td>Manager</td><td class="yrs">2022 to 2025</td><td></td></tr>
+            <tr><td class="team">Nexus Baseball LLC<small>Taylors, SC</small></td><td>Co-founder, GM</td><td class="yrs">Current</td><td>Player development and placement.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">I also coach youth baseball, including Triple Crown Academy tournament teams in South Carolina and North Carolina, and I've been a player evaluator at the PBA Prospects showcase in 2025 and 2026.</p>
+    </div>
+  </section>
+
+  <section class="block" id="books">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Written as Coach Rich Fazio</p>
+        <h2>Books</h2>
+        <p>Journals and scorebooks for the people who play the game, plus the writing that comes from being a dad.</p>
+      </div>
+      <div class="books">
+        <article class="bk"><span class="status out">Out now</span><h3>My Baseball Season</h3><p>A Player's Keepsake Journal. Published October 30, 2026.</p></article>
+        <article class="bk"><span class="status">Coming</span><h3>Baseball Scorebook</h3><p>In the works.</p></article>
+        <article class="bk"><span class="status">Coming</span><h3>Softball Edition</h3><p>The keepsake journal for softball players.</p></article>
+        <article class="bk"><span class="status">Coming</span><h3>Dad Poems</h3><p>101 Poems for the Ones Who Call Me Dad.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="work">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Career</p>
+        <h2>Work</h2>
+      </div>
+      <div class="timeline">
+        <div class="job"><span class="when">2012 to now</span><h3>Relentless Awareness</h3><p>Co-founder, partner and controller of a PR and marketing agency. I run the Greenville office.</p></div>
+        <div class="job"><span class="when">2021 to 2025</span><h3>Motor Oil Coffee Company</h3><p>Co-founder and CEO in Albany, NY. Grew it from one location to four.</p></div>
+        <div class="job"><span class="when">2018 to 2021</span><h3>LAZ Parking</h3><p>Operations manager at GSP and AVL airports.</p></div>
+        <div class="job"><span class="when">2006 to 2018</span><h3>Earlier roles</h3><p>Target asset protection, Lanier Parking, City of Greenville Parking Services, Belk loss prevention, and Regal Cinemas in Albany.</p></div>
+      </div>
+      <p class="note">BA in Sociology with an English minor, University at Albany.</p>
+    </div>
+  </section>
+
+  <section class="block" id="shops">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Family shops</p>
+        <h2>Shop with us</h2>
+      </div>
+      <div class="shops">
+        <a class="shop" href="https://shoppagesandpastimes.com"><h3>Pages and Pastimes</h3><p>Used books, board games, sports cards and clothing, plus my baseball journals and scorebooks.</p><span class="go">shoppagesandpastimes.com</span></a>
+        <a class="shop" href="https://caseyscreationsandmore.com"><h3>Casey's Creations</h3><p>Casey's handmade crayons, paint-your-own plaster kits, and Lightning Struck wood boards. Custom orders welcome.</p><span class="go">caseyscreationsandmore.com</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="contact">
+    <div class="wrap">
+      <div class="contact">
+        <p class="eyebrow">Get in touch</p>
+        <h2>Contact</h2>
+        <p>For teams, coaching, books, or anything else.</p>
+        <p class="placeholder">[Your email address]</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">© 2026 Rich Fazio · Greenville, SC</div></footer>
+</body>
+</html>
