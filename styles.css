@@ -98,6 +98,13 @@ a.card:hover { border-color: var(--accent); }
 /* Contact */
 .contact { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 32px 24px; display: grid; gap: 16px; justify-items: start; max-width: 640px; }
 
+/* Under construction */
+.construction { background: var(--board); color: var(--board-ink); border-radius: 16px; padding: 48px 28px; display: grid; gap: 16px; justify-items: start; position: relative; overflow: hidden; }
+.construction::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 14px; background: repeating-linear-gradient(135deg, var(--accent) 0 18px, var(--board) 18px 36px); }
+.construction h2 { font-size: clamp(48px, 9vw, 92px); font-weight: 900; margin-top: 8px; }
+.construction p { font-size: 18px; opacity: 0.85; max-width: 32em; }
+.construction .btn.alt { color: var(--board-ink); border-color: var(--board-ink); }
+
 footer .wrap { border-top: 1px solid var(--line); padding-block: 26px 40px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 15px; color: var(--muted); }
 footer a { font-weight: 700; color: var(--ink); }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
