@@ -3,140 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Rich Fazio: ballplayer, manager, coach, writer and photographer in Greenville, SC.">
 <title>Rich Fazio</title>
+<meta name="description" content="Rich Fazio, Greenville, SC.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
-<style>
-/* Layout: photo-first landing. A loose wall of pictures, then a ballpark scoreboard of highlights. */
-:root {
-  --bg: #F4F6F9;
-  --paper: #FFFFFF;
-  --ink: #17202C;
-  --muted: #546277;
-  --line: #D6DDE7;
-  --slot: #E3E9F1;
-  --slot-ink: #5A6A80;
-  --board: #1C2E48;
-  --board-ink: #EEF3F9;
-  --accent: #C0582C;
-  --accent-ink: #FFFFFF;
-  --display: 'Big Shoulders Display', 'Arial Narrow', sans-serif;
-  --body: 'Public Sans', system-ui, sans-serif;
-  --mono: 'IBM Plex Mono', ui-monospace, monospace;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #10151C; --paper: #171F29; --ink: #E7EDF4; --muted: #A4B2C4; --line: #2A3646;
-    --slot: #1E2835; --slot-ink: #94A4B9; --board: #0B121C; --board-ink: #E7EDF4; --accent: #DD7A4F; --accent-ink: #10151C;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #10151C; --paper: #171F29; --ink: #E7EDF4; --muted: #A4B2C4; --line: #2A3646;
-  --slot: #1E2835; --slot-ink: #94A4B9; --board: #0B121C; --board-ink: #E7EDF4; --accent: #DD7A4F; --accent-ink: #10151C;
-  color-scheme: dark;
-}
-* { box-sizing: border-box; }
-body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.6; }
-a { color: inherit; }
-a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
-.wrap { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
-h1, h2, h3 { margin: 0; font-family: var(--display); text-transform: uppercase; letter-spacing: 0.01em; line-height: 0.95; text-wrap: balance; }
-p { margin: 0; }
-.label { font-family: var(--mono); font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
-
-/* Top bar */
-.top .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; padding-block: 18px; }
-.mark { font-family: var(--display); font-weight: 900; font-size: 26px; text-transform: uppercase; text-decoration: none; }
-.top nav { display: flex; flex-wrap: wrap; gap: 4px 20px; font-weight: 600; font-size: 15px; }
-.top nav a { text-decoration: none; padding-block: 10px; }
-.top nav a:hover { color: var(--accent); }
-
-/* Hero */
-.hero .wrap { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: center; padding-block: 28px 72px; }
-.hero-text { display: grid; gap: 20px; min-width: 0; }
-.hero h1 { font-size: clamp(76px, 14vw, 150px); font-weight: 900; }
-.hero h1 span { display: block; color: var(--accent); }
-.hero .lead { font-size: 20px; color: var(--muted); max-width: 30em; }
-.btns { display: flex; flex-wrap: wrap; gap: 12px; }
-.btn { display: inline-block; text-decoration: none; font-weight: 700; padding: 14px 24px; border-radius: 8px; background: var(--accent); color: var(--accent-ink); }
-.btn.alt { background: transparent; color: var(--ink); border: 2px solid var(--ink); padding: 12px 22px; }
-.wall { display: grid; grid-template-columns: 1.25fr 1fr; grid-template-rows: 1fr 1fr; gap: 14px; min-width: 0; }
-.slot { background: var(--slot); color: var(--slot-ink); border: 2px dashed var(--line); border-radius: 12px; display: grid; place-items: center; text-align: center; padding: 16px; font-weight: 600; font-size: 15px; min-height: 160px; }
-.wall .main { grid-row: span 2; min-height: 380px; }
-
-/* Highlights scoreboard */
-.board { background: var(--board); color: var(--board-ink); }
-.board .wrap { padding-block: 64px; display: grid; gap: 28px; }
-.board h2 { font-size: clamp(44px, 7vw, 72px); font-weight: 900; }
-.feats { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2px; background: rgba(238,243,249,0.14); border: 2px solid rgba(238,243,249,0.14); border-radius: 12px; overflow: hidden; }
-.feat { background: var(--board); padding: 22px 20px; display: grid; gap: 6px; align-content: start; }
-.feat .yr { font-family: var(--mono); font-size: 14px; color: var(--accent); font-variant-numeric: tabular-nums; }
-.feat h3 { font-size: 30px; font-weight: 800; }
-.feat p { font-size: 15px; opacity: 0.85; }
-.feat.todo h3 { opacity: 0.7; }
-
-/* Galleries */
-section.gal .wrap { padding-block: 64px 8px; display: grid; gap: 22px; }
-.gal-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 10px; }
-.gal-head h2 { font-size: clamp(40px, 6vw, 60px); font-weight: 900; }
-.gal-head a { font-weight: 700; color: var(--accent); }
-.row3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
-.row3 .slot { aspect-ratio: 4 / 5; max-width: 100%; min-height: 0; }
-.row3.wide .slot { aspect-ratio: 3 / 2; }
-
-/* Books + shops */
-.split .wrap { padding-block: 72px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
-.panel { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 28px; display: grid; gap: 12px; align-content: start; }
-.panel h2 { font-size: 42px; font-weight: 900; }
-.panel p { color: var(--muted); }
-.panel ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
-.panel li a { font-weight: 700; text-decoration: none; display: inline-block; padding-block: 4px; }
-.panel li a:hover { color: var(--accent); }
-.panel li span { display: block; font-size: 15px; color: var(--muted); }
-.out { font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; background: var(--accent); color: var(--accent-ink); margin-left: 6px; vertical-align: 2px; }
-
-footer .wrap { border-top: 1px solid var(--line); padding-block: 26px 40px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 15px; color: var(--muted); }
-footer a { font-weight: 700; color: var(--ink); }
-@media (max-width: 560px) { .wall { grid-template-columns: 1fr 1fr; } .wall .main { grid-column: span 2; grid-row: auto; min-height: 300px; } }
-</style>
-<style>body{margin:0}</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Public+Sans:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
 <header class="top">
   <div class="wrap">
-    <a class="mark" href="#">Rich Fazio</a>
+    <a class="mark" href="index.html">Rich Fazio</a>
     <nav aria-label="Main">
-      <a href="#about">About</a>
-      <a href="#art">Art</a>
-      <a href="#photos">Photography</a>
-      <a href="#books">Books</a>
-      <a href="#shop">Shop</a>
-      <a href="https://shoppagesandpastimes.com/pages/contact">Contact</a>
+      <a href="about.html">About</a>
+      <a href="art.html">Art</a>
+      <a href="photography.html">Photography</a>
+      <a href="books.html">Books</a>
+      <a href="shop.html">Shop</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </div>
 </header>
 
 <main>
-  <section class="hero" id="about">
-    <div class="wrap">
-      <div class="hero-text">
-        <p class="label">Brooklyn born · Greenville, SC</p>
-        <h1>Rich <span>Fazio</span></h1>
-        <p class="lead">Ballplayer since age four, manager, coach, writer, photographer, husband and dad of three. This is where I keep the things I make and the things I'm proud of.</p>
-        <div class="btns">
-          <a class="btn" href="#books">See my books</a>
-          <a class="btn alt" href="#shop">Visit the shop</a>
-        </div>
+  <section class="wrap hero">
+    <div class="hero-text">
+      <p class="label">Greenville, SC</p>
+      <h1>Rich <span>Fazio</span></h1>
+      <p class="fill">[A line or two about you]</p>
+      <div class="btns">
+        <a class="btn" href="about.html">About me</a>
+        <a class="btn alt" href="books.html">My books</a>
       </div>
-      <div class="wall">
-        <div class="slot main">Photo of Rich</div>
-        <div class="slot">Photo 2</div>
-        <div class="slot">Photo 3</div>
-      </div>
+    </div>
+    <div class="wall">
+      <div class="slot main">Photo of Rich</div>
+      <div class="slot">Photo 2</div>
+      <div class="slot">Photo 3</div>
     </div>
   </section>
 
@@ -147,67 +50,45 @@ footer a { font-weight: 700; color: var(--ink); }
         <h2>Highlights</h2>
       </div>
       <div class="feats">
-        <div class="feat"><span class="yr">1998</span><h3>PIEA Grand Prize</h3><p>National photography Grand Prize, grades 9 and below, won as a freshman at Abraham Lincoln High School.</p></div>
-        <div class="feat"><span class="yr">1999 to 2000</span><h3>Team of the Year</h3><p>Brooklyn/Queens Team of the Year with the Lincoln wrestling team. Captain of wrestling and baseball.</p></div>
-        <div class="feat"><span class="yr">2001</span><h3>14-1 on the mound</h3><p>Senior season record as a pitcher at Abraham Lincoln.</p></div>
-        <div class="feat"><span class="yr">2022</span><h3>GAB Champions</h3><p>Managed the Greer A's to the Greer Adult Baseball title in our first year, after a 2-8 regular season.</p></div>
-        <div class="feat"><span class="yr">2021 to 2025</span><h3>One shop to four</h3><p>Co-founded Motor Oil Coffee Company in Albany and grew it from one location to four.</p></div>
-        <div class="feat"><span class="yr">2026</span><h3>Published author</h3><p>My Baseball Season: A Player's Keepsake Journal, out October 30, 2026.</p></div>
-        <div class="feat"><span class="yr">2026</span><h3>12-6 and a Game 5</h3><p>Co-managed the Greenville Pioneers through a first-round sweep of Anderson to a five-game semifinal.</p></div>
-        <div class="feat todo"><span class="yr">[Year]</span><h3>[Relentless award]</h3><p>[Award name and what it was for]</p></div>
+        <div class="feat"><span class="yr">[Year]</span><h3>[Highlight]</h3></div>
+        <div class="feat"><span class="yr">[Year]</span><h3>[Highlight]</h3></div>
+        <div class="feat"><span class="yr">[Year]</span><h3>[Highlight]</h3></div>
+        <div class="feat"><span class="yr">[Year]</span><h3>[Highlight]</h3></div>
       </div>
     </div>
   </section>
 
-  <section class="gal" id="art">
-    <div class="wrap">
-      <div class="gal-head"><h2>Art</h2><a href="#art">See all art</a></div>
-      <div class="row3">
-        <div class="slot">Art piece 1</div>
-        <div class="slot">Art piece 2</div>
-        <div class="slot">Art piece 3</div>
-      </div>
+  <section class="wrap section">
+    <div class="head"><h2>Art</h2><a href="art.html">See all art</a></div>
+    <div class="grid3">
+      <div class="slot">Art piece</div>
+      <div class="slot">Art piece</div>
+      <div class="slot">Art piece</div>
     </div>
   </section>
 
-  <section class="gal" id="photos">
-    <div class="wrap">
-      <div class="gal-head"><h2>Photography</h2><a href="#photos">See all photos</a></div>
-      <div class="row3 wide">
-        <div class="slot">Photo 1</div>
-        <div class="slot">Photo 2</div>
-        <div class="slot">Photo 3</div>
-      </div>
+  <section class="wrap section">
+    <div class="head"><h2>Photography</h2><a href="photography.html">See all photos</a></div>
+    <div class="grid3 wide">
+      <div class="slot">Photo</div>
+      <div class="slot">Photo</div>
+      <div class="slot">Photo</div>
     </div>
   </section>
 
-  <section class="split">
-    <div class="wrap">
-      <div class="panel" id="books">
-        <p class="label">Written as Coach Rich Fazio</p>
-        <h2>Books</h2>
-        <ul>
-          <li><a href="#books">My Baseball Season <span class="out">Out now</span></a><span>A Player's Keepsake Journal</span></li>
-          <li><a href="#books">Dad Poems</a><span>101 Poems for the Ones Who Call Me Dad. Coming soon.</span></li>
-          <li><a href="#books">Baseball Scorebook and Softball Edition</a><span>Coming soon.</span></li>
-        </ul>
-      </div>
-      <div class="panel" id="shop">
-        <p class="label">Family shops</p>
-        <h2>Shop</h2>
-        <ul>
-          <li><a href="https://shoppagesandpastimes.com">Pages and Pastimes</a><span>Sports cards, used books, board games and finds.</span></li>
-          <li><a href="https://caseyscreationsandmore.com">Casey's Creations</a><span>Casey's handmade crayons, paint kits and Lightning Struck boards.</span></li>
-        </ul>
-      </div>
+  <section class="wrap section">
+    <div class="head"><h2>Books</h2><a href="books.html">See all books</a></div>
+    <div class="cards narrow">
+      <a class="card" href="books.html"><div class="slot">Book cover</div><h3>My Baseball Season</h3><span class="go">Buy the book</span></a>
+      <a class="card" href="books.html"><div class="slot">Book cover</div><h3>Dad Poems</h3><span class="go">Coming soon</span></a>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <span>© 2026 Rich Fazio · Greenville, SC</span>
-    <a href="https://shoppagesandpastimes.com/pages/contact">Send me a message</a>
+    <span>© 2026 Rich Fazio</span>
+    <a href="contact.html">Contact</a>
   </div>
 </footer>
 </body>
